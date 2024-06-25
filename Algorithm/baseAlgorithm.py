@@ -2,6 +2,7 @@ from MultiLoad.map import *
 from MultiLoad.task import *
 from MultiLoad.agent import *
 from sklearn.cluster import SpectralClustering
+from sklearn.cluster import KMeans
 from sklearn.cluster import OPTICS
 from sklearn.datasets import make_blobs
 
@@ -18,13 +19,21 @@ def getDelta(Task1:Task, Task2:Task):
     p4 = s1s2+s2g1+g1g2 # s1->s2->g1->g2
     p5 = s1s2+s1g1+g1g2 # s2->s1->g1->g2
     p6 = s1s2+s1g2+g1g2 # s2->s1->g2->g1
+    # dir_map = {
+    #     p1: (1, 1),
+    #     p2: (2, 2),
+    #     p3: (1, 2),
+    #     p4: (1, 1),
+    #     p5: (2, 1),
+    #     p6: (2, 2)
+    # }
     dir_map = {
         p1: (1, 1),
-        p2: (2, 2),
-        p3: (1, 2),
+        p2: (-1, -1),
+        p3: (1, -1),
         p4: (1, 1),
-        p5: (2, 1),
-        p6: (2, 2)
+        p5: (-1, 1),
+        p6: (-1, -1)
     }
     d = min(p1, p2, p3, p4, p5, p6)
     if d in dir_map:

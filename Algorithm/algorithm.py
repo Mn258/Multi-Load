@@ -93,21 +93,14 @@ def kMeansClustering(TaskSet:List[int], k:int) -> List[List[int]]:
     n_c = int(min(k, len(TaskSet))//2)
     G,_,_ = getGraph(TaskSet)
     nG, _ = positiveGraph(G)
-    spectral = SpectralClustering(n_clusters=n_c, affinity='precomputed', random_state=0)
+    for i in range(len(nG)):
+        nG[i][i] = 0
+    spectral = KMeans(n_clusters=n_c)
     labels = spectral.fit_predict(nG)
     Tpackage = [[] for _ in range(n_c)]
     for i in range(len(labels)):
         Tpackage[labels[i]].append(TaskSet[i])
     return Tpackage
-    pass
-
-def maxCapHierarchicalClustering(TaskSet:List[int], maxCapacity:int):
-    """ hierarchical clustering """
-    if TaskSet == []:
-        return None
-    G,dirs,dirg = getGraph(TaskSet)
-    while True:
-        pass
     pass
 
 def singleTaskAlloc(tid:int, agent:Agent, cost:int, p:List[List[int]]):
