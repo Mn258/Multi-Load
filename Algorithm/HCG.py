@@ -12,11 +12,7 @@ def distanceofTask(p1:List[int], p2:List[int], G)->int:
     return Delta/(len(t)*(len(t)-1))*2
     pass
 
-def distanceDir(ts1:List[int], ts2:List[int], G, dirs, dirg):
-    """ distance between two tasksets considering the direction """
-    deltaS = 0
-    deltaG = 0
-    pass
+
 
 def HeuristicClustering(TaskSet:List[int], k:int):
     """ Heuristic clustering """
@@ -58,7 +54,14 @@ def HeuristicClustering(TaskSet:List[int], k:int):
     # weight = [[x for x in G[i]] for i in range(len(G))]
     # Tasks = [[i] for i in range(len(TaskSet))]
     return Tpackage
-            
+
+def distanceDir(ts1:List[int], ts2:List[int], G, dirs, dirg):
+    """ distance between two tasksets considering the direction """
+    deltaS = 0
+    
+    deltaG = 0
+    pass
+
 def MaxHeuristicClustering(TaskSet:List[int], k:int):
     """ Max heuristic clustering with SCC """
     if TaskSet == []:
@@ -66,7 +69,37 @@ def MaxHeuristicClustering(TaskSet:List[int], k:int):
     if len(TaskSet) == 1:
         return [TaskSet]
     G, dirS, dirG = getGraph(TaskSet)
+    weight = [[x for x in G[i]] for i in range(len(G))]
+    Tasks = [[i] for i in range(len(TaskSet))]
+    flag = True
+    while flag:
+        flag = False
+        min_d = np.inf
+        min_i, min_j = None, None
+        for i, cluster1 in enumerate(Tasks):
+            for j, cluster2 in enumerate(Tasks):
+                if i != j and len(cluster1)+len(cluster2) <= k:
+                    d = distanceDir(cluster1, cluster2, G, dirS, dirG)
+                    if d < min_d:
+                        flag = True
+                        min_d = d
+                        min_i = i
+                        min_j = j
+        if min_i is not None and min_j is not None:
+            new_cluster = Tasks[min_i] + Tasks[min_j]
+            del Tasks[min_i]
+            del Tasks[min_j-1]
+            Tasks.append(new_cluster)
 
+            del weight[min_i]
+            del weight[min_j-1]
+            for ii in range(len(weight)):
+                del weight[ii][min_i]
+                del weight[ii][min_j-1]
+                weight[ii].append(distanceofTask(new_cluster, Tasks[ii], G))
+            weight.append([weight[i][-1] for i in range(len(Tasks)-1)]+[0])
+    Tpackage = [[TaskSet[x] for x in i] for i in Tasks]
+    return Tpackage
     pass
 
 

@@ -207,7 +207,8 @@ def ClusterAllocation(TaskSet:List[int]):
     """ Cluster the task and allocate the task to agent """
     maxCapacity = map.agentSet.getMaxCapacity()
     # Tpackage = kMeansClustering(TaskSet, map.agentSet.numAgent)
-    Tpackage = HeuristicClustering(TaskSet, maxCapacity)
+    # Tpackage = HeuristicClustering(TaskSet, maxCapacity)
+    Tpackage = MaxHeuristicClustering(TaskSet, maxCapacity)
     # Tpackage = DBSCANClustering(TaskSet, maxCapacity)
     allocationTask(Tpackage)
     pass
