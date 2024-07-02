@@ -176,28 +176,39 @@ def bidforTasks(tasks:List[int], agent:Agent):
 
 def allocationTask(Tpackage:List[List[int]]):
     """ allocation task to agent """
+    PathSet = {}
+    Delta = [[0]*len(map.agentSet.Aset) for _ in range(len(Tpackage))]
+    for i in range(len(Tpackage)):
+        for aid in map.agentSet.Aset.keys():
+            Delta[i][aid], path, cost = bidforTasks(Tpackage[i], map.agentSet.Aset[aid])
+            PathSet[(i, aid)] = path
+            pass
     while len(Tpackage) > 0:
         bid = 10000
-        for taskp in Tpackage:
+        for i in range(len(Tpackage)):
             for aid in map.agentSet.Aset.keys():
-                delta, path, cost = bidforTasks(taskp, map.agentSet.Aset[aid])
+                delta = Delta[i][aid]
                 if delta < bid:
                     bid = delta
-                    bestcost = cost
-                    besttasks = taskp
-                    bestpath = path
+                    bestpath = PathSet[(i, aid)]
+                    besttasks = i
                     bestagent = map.agentSet.Aset[aid]
-        Tpackage.remove(besttasks)
+        del Tpackage[besttasks]
         # bestagent.taskList.extend(besttasks)
         # bestagent.taskList.append(x for x in besttasks)
-        bestagent.schedule = bestpath
-        # bestagent.pathcost = bestcost # donot need to update pathcost
+        bestagent.schedule = [[x for x in i] for i in bestpath]
+        del Delta[besttasks]
+        for i in range(len(Tpackage)):
+            Delta[i][bestagent.id], path, cost = bidforTasks(Tpackage[i], bestagent)
+            PathSet[(i, bestagent.id)] = path
     pass
 
 def ClusterAllocation(TaskSet:List[int]):
     """ Cluster the task and allocate the task to agent """
     maxCapacity = map.agentSet.getMaxCapacity()
-    Tpackage = kMeansClustering(TaskSet, map.agentSet.numAgent)
+    # Tpackage = kMeansClustering(TaskSet, map.agentSet.numAgent)
+    Tpackage = HeuristicClustering(TaskSet, maxCapacity)
+    # Tpackage = DBSCANClustering(TaskSet, maxCapacity)
     allocationTask(Tpackage)
     pass
 

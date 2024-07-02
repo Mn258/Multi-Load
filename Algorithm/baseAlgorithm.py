@@ -6,6 +6,7 @@ from sklearn.cluster import KMeans
 from sklearn.cluster import OPTICS
 from sklearn.datasets import make_blobs
 
+
 def getDelta(Task1:Task, Task2:Task):
     s1g1 = map.allHeristic[(Task1.endPoint[0], Task1.endPoint[1])][Task1.startPoint[0]][Task1.startPoint[1]]
     s2g2 = map.allHeristic[(Task2.endPoint[0], Task2.endPoint[1])][Task2.startPoint[0]][Task2.startPoint[1]]
@@ -28,12 +29,12 @@ def getDelta(Task1:Task, Task2:Task):
     #     p6: (2, 2)
     # }
     dir_map = {
-        p1: (1, 1),
-        p2: (-1, -1),
-        p3: (1, -1),
-        p4: (1, 1),
+        p6: (-1, -1),
         p5: (-1, 1),
-        p6: (-1, -1)
+        p4: (1, 1),        
+        p3: (1, -1),
+        p2: (-1, -1),
+        p1: (1, 1),
     }
     d = min(p1, p2, p3, p4, p5, p6)
     if d in dir_map:
@@ -53,4 +54,16 @@ def getGraph(TaskSet:List[int]):
             rt[i][j],dirs[i][j], dirg[i][j] = getDelta(map.taskSet.Tset[TaskSet[i]], map.taskSet.Tset[TaskSet[j]])
             pass
     return rt, dirs, dirg
+    pass
+
+def positiveGraph(G:List[List[int]]):
+    min_e = G[0][0]
+    for i in range(len(G)):
+        for j in range(len(G[i])):
+            if G[i][j] < min_e:
+                min_e = G[i][j]
+    for i in range(len(G)):
+        for j in range(len(G[i])):
+            G[i][j] = G[i][j] - min_e+1
+    return G, min_e
     pass
