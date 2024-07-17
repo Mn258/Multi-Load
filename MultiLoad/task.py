@@ -46,9 +46,9 @@ class TaskSet:
         #     self.Tset[i].id = i
         pass
 
-    def sortTask(self):
-        self.Tset.sort(key = lambda x: x.startTime)
-        pass
+    # def sortTask(self):
+    #     self.Tset.sort(key = lambda x: x.startTime)
+    #     pass
 
     def __del__(self):
         del self.Tset

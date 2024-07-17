@@ -1,6 +1,7 @@
 import random
-from MultiLoad.task import *
-from MultiLoad.agent import *
+from MultiLoad.task import TaskSet
+from MultiLoad.agent import AgentSet
+from typing import List
 
 class Config:
     def __init__(self, batch:int) -> None:
@@ -16,6 +17,7 @@ class Map:
         self.timestep:int = 0
         self.config:Config = Config(10)
         self.ST:int = 0
+        self.processingtime:int = 0
         self.getMapFromFile()
     pass
 
@@ -76,7 +78,7 @@ class Map:
 
     def generateTaskAndAgent(self, numTask:int = 0, time:int = 1000, numAgent:int = 0, capacity:int = 0):
         self.generateTask(numTask, time)
-        self.generateAgentPosition(numAgent, capacity)
+        self.generateAgentPosition(numAgent)
         pass
     
     def getAvailableRobotPosition(self):
@@ -112,11 +114,11 @@ class Map:
     def getMap(self):
         return self.map
     
-    def generateAgentPosition(self, numAgent:int = 0, capacity:int = 0):
+    def generateAgentPosition(self, numAgent:int = 0):
         count = 0
-        with open("Agent/"+self.filename +"."+ str(numAgent)+"."+str(capacity)+ ".agent", 'w') as f:
+        with open("Agent/"+self.filename +"."+ str(numAgent)+ ".agent", 'w') as f:
             f.write("numAgent "+str(numAgent)+"\n")
-            f.write("capacity {}\n".format(capacity))
+            # f.write("capacity {}\n".format(capacity))
             pos = []
             while numAgent > count:
                 position = self.getAvailableRobotPosition()
@@ -186,11 +188,13 @@ class Map:
 def generateMap(filename:str = "zzz.txt", numTask:int = 1000, time:int = 1000, numAgent:int = 0, capacity:int = 0):
     map = Map(filename)
     # map.generateTaskAndAgent(numTask, time, numAgent, capacity)
+    # map.generateTask(numTask, time)
+    # map.generateAgentPosition(numAgent)
     return map
 
 
 global map
-map = generateMap("zzz.txt", 1000, 1000, 30, 3)
+map = generateMap("zzz.txt", 1500, 1000, 20, 3)
 # map.setHeristic()
 map.getHeristic()
 # for i in range(map.height):

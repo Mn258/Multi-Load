@@ -19,14 +19,14 @@ class AgentSet:
 
         self.numAgent = numAgent
         self.capacity = capacity
-        self.filename = filename + "." + str(numAgent) + "." + str(capacity) + ".agent"
+        self.filename = filename + "." + str(numAgent) +".agent"
         self.getAgentFromFile()
         pass
 
     def getMaxCapacity(self):
         maxCapacity = 0
         for agent in self.Aset.values():
-            maxCapacity = max(maxCapacity, agent.capacity)
+            maxCapacity = max(maxCapacity, agent.capacity - len(agent.taskList))
         return maxCapacity
         pass
     
@@ -37,8 +37,8 @@ class AgentSet:
             # read header type of map
             line = f.readline()
             self.numAgent = int(line.split(" ")[1])
-            line = f.readline()
-            self.capacity = int(line.split(" ")[1])
+            # line = f.readline()
+            # self.capacity = int(line.split(" ")[1])
             for i in range(self.numAgent):
                 line = f.readline()
                 position = [int(line.split(" ")[0]), int(line.split(" ")[1])]
