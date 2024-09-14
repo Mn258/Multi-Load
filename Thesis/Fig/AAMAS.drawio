@@ -19,7 +19,7 @@
         <mxCell id="RxVfPSey4gtv-o3c42Gy-17" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ g}_{ \tau_i} $$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="480" y="1040" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="RxVfPSey4gtv-o3c42Gy-18" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{g}_{ \tau_k} $$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
+        <mxCell id="RxVfPSey4gtv-o3c42Gy-18" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ g}_{ \tau_ k}$$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="480" y="1200" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="RxVfPSey4gtv-o3c42Gy-19" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ g}_{ \tau_3} $$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
