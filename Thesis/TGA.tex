@@ -35,6 +35,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{subfigure}
+\usepackage{svg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -218,6 +219,8 @@ which are also executed to the same agent at same time.
   \label{fig:carpooling}
   \Description{The impact of co-passenger tasks}
 \end{figure}
+
+\begin{example}
 As shown as in Figure~\ref{fig:carpooling}, there is an agent, $a$, 
 and three tasks, $\tau_{1}$, $\tau_{2}$ and $\tau_{3}$.
 The agent $a$ is located at pickup location of $\tau_{1}$.
@@ -232,7 +235,9 @@ $a$ needs to take the red paths to complete $\tau_{1}$ and $\tau_{3}$.
 While it also lengthens the completed time of $\tau_{1}$, 
 it is obvious that $\tau_3$ has less of an effect on $\tau_1$ as compared to $\tau_{2}$.
 Therefore, we need to consider the impact of "co-passenger" tasks when allocating tasks to agents.
-We 
+\end{example}
+
+
 \begin{figure}[htbp]
   \centering
   \subfigure[$Path^1_{i,j}$]{
@@ -246,24 +251,56 @@ We
   \Description{All possible paths of two tasks}
 \end{figure}
 
+We first analyze the likelihood of carpooling between two tasks.
+As shown in Figure~\ref{fig:2TP}, there are 6 paths to the completion of $\tau_{i}$ and $\tau_{j}$, 
+ignoring the location of agent.
+The paths are $Path^{1}_{i,j}$, $Path^{2}_{i,j}$, $Path^{3}_{i,j}$, $Path^{4}_{i,j}$, $Path^{5}_{i,j}$ and $Path^{6}_{i,j}$.
+Therefore, we define the carpooling chance between two tasks $\tau_{i}$ and $\tau_{j}$ as follows.
+
+\begin{definition}
+\label{cp2}
+    The carpooling chance between two tasks $\tau_{i}$ and $\tau_{j}$ is defined as 
+    \begin{eqnarray}
+    \label{eq:cp2}
+        \Delta_{\tau_{i}, \tau_{j}} = min\{Path^{q}_{i,j}\} - 
+        dis(v^{g}_{\tau_{i}}, v^{s}_{\tau_{i}}) - dis(v^{g}_{\tau_{j}}, v^{s}_{\tau_{j}})
+        % q \in \{1, 2, 3, 4, 5, 6\}
+    \end{eqnarray}
+    where $q \in [1, 6] \wedge q \in \mathbb{N_+}$. $\Delta_{i,j}$ is difference 
+    between the shortest path of two tasks 
+    and the sum of the distances between the pickup and delivery locations of the two tasks.
+    The small $\Delta_{i,j}$ indicates that $\tau_{i}$ and $\tau_{j}$ being executed by the same agent
+    has less impact on each other's completed time, which can efficiently optimize ${ST}$.
+\end{definition}
+
+
 % We firstly quantify the carpooling chance between two tasks using Equation~(\ref{eq:cp2}).
 
-\begin{eqnarray}
-  \label{eq:cp2}
-  \Delta_{i,j} = min
-\end{eqnarray}
-
-
+\begin{figure}[ht]
+  \centering
+  \subfigure[K tasks]{
+    \label{fig:K-taskgroup}
+    \includegraphics[width=0.4\linewidth]{Fig/k-task-1.pdf}}
+  \subfigure[Path of K tasks]{
+    \label{fig:KTG-path}
+    \includegraphics[width=0.4\linewidth]{Fig/k-task-2.pdf}}
+  \caption[11]{Path of K Tasks}
+  \label{PKT}
+  \Description{Path of K Tasks}
+\end{figure}
 
 \begin{theorem}
   \label{thm:TaskGroupCost}
-  Given a set of tasks $\Gamma_{N}$, 
+  Given a set of tasks $\Gamma_{N}$,
+  
+  \begin{eqnarray}
+    \label{eq:tgc}
+        Cost \leq \sum_{\tau_i \in \Gamma_N}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})} - 2*(N-1)\Delta
+    \end{eqnarray}
+
 \end{theorem}
 
-\begin{eqnarray}
-\label{eq:tgc}
-    Cost \leq \sum_{\tau_i \in \Gamma_N}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})} - 2*(N-1)\Delta
-\end{eqnarray}
+
 
 \begin{proof}
     this is a proof.
@@ -284,7 +321,7 @@ The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
 \end{algorithmic}
 \end{algorithm}
 
-% \balance
+\balance
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2020/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: AAMAS_2025_sample.aux
+The top-level auxiliary file: TGA.aux
 The style file: ACM-Reference-Format.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -13,7 +13,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 1 entry,
             5945 wiz_defined-function locations,
-            1334 strings with 14931 characters,
+            1334 strings with 14903 characters,
 and the built_in function-call counts, 1578 in all, are:
 = -- 220
 > -- 63
