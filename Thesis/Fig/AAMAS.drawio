@@ -7,13 +7,13 @@
         <mxCell id="RxVfPSey4gtv-o3c42Gy-12" value="$$v^{ s}_{ \tau_{ i}} $$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="240" y="1040" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="RxVfPSey4gtv-o3c42Gy-13" value="$$v^{ s}_{ \tau_{ k}} $$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
+        <mxCell id="RxVfPSey4gtv-o3c42Gy-13" value="$$v^{ s}_{ \tau_{ k}}$$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="240" y="1200" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="RxVfPSey4gtv-o3c42Gy-14" value="$$v^{ s}_{ \tau_{ 3}} $$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="240" y="880" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="RxVfPSey4gtv-o3c42Gy-16" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ g}_{ \tau_1 }$$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
+        <mxCell id="RxVfPSey4gtv-o3c42Gy-16" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ g}_{ \tau_ 1}$$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="480" y="640" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="RxVfPSey4gtv-o3c42Gy-17" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ g}_{ \tau_i} $$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
@@ -35,7 +35,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="RxVfPSey4gtv-o3c42Gy-21" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ s}_{ \tau_1}$$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
+        <mxCell id="RxVfPSey4gtv-o3c42Gy-21" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ s}_{ \tau_ 1}$$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
           <mxGeometry x="1040" y="640" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="RxVfPSey4gtv-o3c42Gy-22" value="&lt;span style=&quot;font-family: &amp;quot;Lucida Console&amp;quot;; font-size: 32px;&quot;&gt;$$v^{ s}_{ \tau_ i}$$&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" parent="1" vertex="1">
@@ -485,7 +485,7 @@
         <mxCell id="tGvHR41yQsbJT7l2FqXR-14" value="$$v^{s}_{\tau_i}$$" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-1420" y="380" width="40" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="tGvHR41yQsbJT7l2FqXR-15" value="$$v^{ s}_{ \tau_{1} } $$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" vertex="1" parent="1">
+        <mxCell id="tGvHR41yQsbJT7l2FqXR-15" value="$$v^{ s}_{ \tau_{ 1}}$$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" vertex="1" parent="1">
           <mxGeometry x="240" y="640" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="tGvHR41yQsbJT7l2FqXR-16" value="$$v^{ s}_{ \tau_{2 }} $$" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=32;" vertex="1" parent="1">
