@@ -39,6 +39,28 @@ class Map:
             if cost == 0:
                 break
         return [x, y]
+    
+    def getAstar(self, start:List[int], end:List[int], cost:int):
+        x, y = start[0], start[1]
+        h = self.allHeristic[(end[0], end[1])]
+        mincost = 100000
+        path = []
+        while cost>0:
+            for dx, dy in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                nx, ny = x + dx, y + dy
+                if nx < 0 or nx >= self.height or ny < 0 or ny >= self.width:
+                    continue
+                if self.map[nx][ny] == 0:
+                    continue
+                if h[nx][ny] < h[x][y]:
+                    x, y = nx, ny
+                    path.append([x, y])
+                    cost -= 1
+                    break
+            if cost == 0:
+                break
+        
+        return [x, y], path
 
     def getMapFromFile(self):
         if self.filename == "":

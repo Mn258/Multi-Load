@@ -56,12 +56,26 @@ def getCostandTime(aid:int):
             map.ST += map.taskSet.Tset[-agent.schedule[i+1][3]].completeTime - map.taskSet.Tset[-agent.schedule[i+1][3]].startTime
     pass
 
+def move1Step(self, start:List[int], end:List[int]):
+    x, y = start[0], start[1]
+    h = self.allHeristic[(end[0], end[1])]
+    mincost = 100000
+    for dx, dy in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+        nx, ny = x + dx, y + dy
+        if nx < 0 or nx >= self.height or ny < 0 or ny >= self.width:
+            continue
+        if self.map[nx][ny] == 0:
+            continue
+        if h[nx][ny] < h[x][y]:
+            x, y = nx, ny
+    return [x, y]
+
 def updatePosition(batch:int, aid:int):
     """ update the position of agent """
     agent = map.agentSet.Aset[aid]
     if len(agent.schedule) == 0:
         agent.schedule = [agent.position]
-        agent.schedule[0]+= [0, 0]
+        agent.schedule[0] += [0, 0]
         agent.pathcost = 0
         return None
     elif len(agent.schedule) == 1:
@@ -72,13 +86,16 @@ def updatePosition(batch:int, aid:int):
         pass
     i = 0
     pathcost = []
+    TotalPath = []
     while len(agent.schedule)-1 > i and batch > 0:
         if distanceofTask(agent.schedule[i], agent.schedule[i+1]) <= batch:
             batch -= distanceofTask(agent.schedule[i], agent.schedule[i+1])
+            _, path = map.getAstar(agent.schedule[i], agent.schedule[i+1], distanceofTask(agent.schedule[i], agent.schedule[i+1]))
             pathcost.append(distanceofTask(agent.schedule[i], agent.schedule[i+1]))
             i+=1
         else:
             break
+        TotalPath.extend(path)
         pass
     for j in range(1, i+1):
         if agent.schedule[j][3] > 0:
@@ -99,7 +116,8 @@ def updatePosition(batch:int, aid:int):
             raise ValueError("Invalid value for schedule")
         return None
     if batch > 0:
-        position = map.getAstarPosition(agent.schedule[i], agent.schedule[i+1], batch)
+        position, dddpath = map.getAstar(agent.schedule[i], agent.schedule[i+1], batch)
+        TotalPath.extend(dddpath)
         agent.position = position
         agent.schedule = agent.schedule[i:]
         agent.schedule[0] = position+[agent.schedule[0][2]]+[0]
@@ -117,6 +135,7 @@ def updatePosition(batch:int, aid:int):
     agent.schedule = new_schedule
     agent.pathcost = getPathCost(agent.schedule)
     checkPath(agent.schedule)
+    return TotalPath
     pass
 
 
@@ -425,8 +444,8 @@ def ClusterAllocation(TaskSet:List[int]):
     maxCapacity = map.agentSet.getMaxCapacity()
     # Tpackage = kMeansClustering(TaskSet, map.agentSet.numAgent)
     # Tpackage = HeuristicClustering(TaskSet, maxCapacity)
-    # Tpackage = MaxHeuristicClustering(TaskSet, maxCapacity)
-    Tpackage = MHCEnhance(TaskSet, maxCapacity)
+    Tpackage = MaxHeuristicClustering(TaskSet, maxCapacity)
+    # Tpackage = MHCEnhance(TaskSet, maxCapacity)
     # Tpackage = DBSCANClustering(TaskSet, maxCapacity)
     # print("Time:", time.time()-t)
     allocationTask2(Tpackage)
