@@ -35,8 +35,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{subfigure}
-\usepackage{svg}
-
+\usepackage{url}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% AAMAS-2025 copyright block (do not change!)
@@ -142,7 +141,7 @@ Before this, we first give the definitions of map, task, agent, comparative metr
 \label{MapDfn}
     A map $G = (V, E)$ is the , 
     whose vertices $V$ correspond to locations and edges $E$ represent edges between adjoining locations.
-    The shortest distance between two locations $v_{i}$ and $v_{j}$ is denoted as $dis(v_{i}, v_{j})$.
+    The shortest distance of the path between two locations $v_{i}$ and $v_{j}$ is denoted as $dis(v_{i}, v_{j})$.
 
 \end{definition}
 
@@ -161,8 +160,10 @@ Before this, we first give the definitions of map, task, agent, comparative metr
     An agent $a \in A$ is represented as a tuple $<v_{a}, c_{a}, \Gamma_{a}, S_{a}>$, 
     where $v_{a}$ is location, $c_{a}$ represents the maximum capacity, 
     $\Gamma_{a}$ is the set of tasks, and $S_{a}$ is the schedule of $\Gamma_{a}$. 
-    The $S_{a} = <v_{1}, v_{2},..., v_{n}>$, 
-    where $v_{i}$ is a pickup or delivery location of task $\tau \in \Gamma_{a}$.
+    The $S_{\Gamma_{a}} = <v_{1}, v_{2},..., v_{n}>$, 
+    where $v_{i}$ is a pickup or delivery location of task $\tau \in \Gamma_{a}$,
+    and the cost of schedule $S_{\Gamma_{a}}$ is denoted as 
+    $Cost(S_{\Gamma_{a}}) = \sum^{n-1}_{i=1}{dis(v_i, v_{i+1})}$.
 \end{definition}
 
 A task $\tau \in \Gamma$ is released at $t^{r}_{\tau}$. 
@@ -182,8 +183,7 @@ then the task is considered as failed.
     $CR = {\sum_{\tau_i \in \Gamma}{X_{\tau_i}}}/{|\Gamma|}$, 
     where $X_{\tau_i}$ is a decision variable, is completion ratio of $\Gamma$. 
     If task $\tau_{i}$ is completed, then $X_{\tau_i}$ is 1; otherwise, it is 0.
-    
-    
+       
 \end{definition}
 
 \begin{definition}[MLAPD]
@@ -220,13 +220,12 @@ which are also executed to the same agent at same time.
   \Description{The impact of co-passenger tasks}
 \end{figure}
 
-\begin{example}
+\begin{example}[Co-passenger tasks]
 As shown as in Figure~\ref{fig:carpooling}, there is an agent, $a$, 
 and three tasks, $\tau_{1}$, $\tau_{2}$ and $\tau_{3}$.
 The agent $a$ is located at pickup location of $\tau_{1}$.
-% The black line is the shortest path for agent to complete $\tau_{1}$.
-The blue lines are the shortest paths for agent $a$ to complete $\tau_{1}$ and $\tau_{2}$.
-The red lines are the shortest paths for agent $a$ to complete $\tau_{1}$ and $\tau_{3}$.
+The blue lines are the best schedule for agent $a$ to complete $\tau_{1}$ and $\tau_{2}$.
+The red lines are the best schedule for agent $a$ to complete $\tau_{1}$ and $\tau_{3}$.
 When we allocate $\tau_{1}$ and $\tau_{2}$ to the agent $a$,
 the agent $a$ needs to take the blue paths to complete $\tau_{1}$ and $\tau_{2}$ by greedy strategy,
 and it will not impact the completion time of $\tau_{2}$ but lengthen the completed time of $\tau_{1}$.
@@ -240,75 +239,122 @@ Therefore, we need to consider the impact of "co-passenger" tasks when allocatin
 
 \begin{figure}[htbp]
   \centering
-  \subfigure[$Path^1_{i,j}$]{
-    \label{fig:path1}
+  \subfigure[$S^1_{i,j}$]{
+    \label{fig:schedule1}
     \includegraphics[width=0.4\linewidth]{Fig/path1.pdf}}
-  \subfigure[$Path^2_{i,j}$]{
-    \label{fig:path2}
+  \subfigure[$S^2_{i,j}$]{
+    \label{fig:schedule2}
     \includegraphics[width=0.4\linewidth]{Fig/path2.pdf}}
-  \caption{All possible paths of two tasks}
+  \subfigure[$S^3_{i,j}$]{
+    \label{fig:schedule3}
+    \includegraphics[width=0.4\linewidth]{Fig/path3.pdf}}
+  \subfigure[$S^4_{i,j}$]{
+    \label{fig:schedule4}
+    \includegraphics[width=0.4\linewidth]{Fig/path4.pdf}}
+  \subfigure[$S^5_{i,j}$]{
+    \label{fig:schedule5}
+    \includegraphics[width=0.4\linewidth]{Fig/path5.pdf}}
+  \subfigure[$S^6_{i,j}$]{
+    \label{fig:schedule6}
+    \includegraphics[width=0.4\linewidth]{Fig/path6.pdf}}
+  \caption{All possible schedules of two tasks}
   \label{fig:2TP}
-  \Description{All possible paths of two tasks}
+  \Description{All possible schedules of two tasks}
 \end{figure}
 
 We first analyze the likelihood of carpooling between two tasks.
-As shown in Figure~\ref{fig:2TP}, there are 6 paths to the completion of $\tau_{i}$ and $\tau_{j}$, 
+As shown in Figure~\ref{fig:2TP}, there are 6 schedules to the completion of $\tau_{i}$ and $\tau_{j}$, 
 ignoring the location of agent.
-The paths are $Path^{1}_{i,j}$, $Path^{2}_{i,j}$, $Path^{3}_{i,j}$, $Path^{4}_{i,j}$, $Path^{5}_{i,j}$ and $Path^{6}_{i,j}$.
+The schedules are $S^{1}_{i,j}$, $S^{2}_{i,j}$, $S^{3}_{i,j}$, $S^{4}_{i,j}$, $S^{5}_{i,j}$ and $S^{6}_{i,j}$.
 Therefore, we define the carpooling chance between two tasks $\tau_{i}$ and $\tau_{j}$ as follows.
 
-\begin{definition}
+\begin{definition}[Carpooling chance]
 \label{cp2}
     The carpooling chance between two tasks $\tau_{i}$ and $\tau_{j}$ is defined as 
     \begin{eqnarray}
     \label{eq:cp2}
-        \Delta_{\tau_{i}, \tau_{j}} = min\{Path^{q}_{i,j}\} - 
+        \Delta_{\tau_{i}, \tau_{j}} = min\{S^{q}_{i,j}\} - 
         dis(v^{g}_{\tau_{i}}, v^{s}_{\tau_{i}}) - dis(v^{g}_{\tau_{j}}, v^{s}_{\tau_{j}})
         % q \in \{1, 2, 3, 4, 5, 6\}
     \end{eqnarray}
     where $q \in [1, 6] \wedge q \in \mathbb{N_+}$. $\Delta_{i,j}$ is difference 
-    between the shortest path of two tasks 
+    between the best schedule of two tasks 
     and the sum of the distances between the pickup and delivery locations of the two tasks.
     The small $\Delta_{i,j}$ indicates that $\tau_{i}$ and $\tau_{j}$ being executed by the same agent
     has less impact on each other's completed time, which can efficiently optimize ${ST}$.
 \end{definition}
 
+Howerver, in this paper, we focus on multi-load agents, 
+which can carry multiple tasks at the same time, not just two agents.
+Therefore, we need to consider the carpooling chance between multiple tasks.
+In the beginning, we encounter an issue 
+that we cannot find the best schedule to complete multiple tasks, 
+which is a NP-hard problem.
+Therefore, we firtly find a novel schedule to complete there tasks.
+Then we evaluate cost of the schedule and proof it.
+Finally, we quantify the carpooling chance between multiple tasks.
 
-% We firstly quantify the carpooling chance between two tasks using Equation~(\ref{eq:cp2}).
+As shown in Figure~\ref{fig:K-taskgroup}, there is a set of task $\Gamma_K$, 
+which contains K tasks, $\tau_{1}$, $\tau_{2}$, ..., $\tau_{K}$.
+The schedule $\dot{S_{\Gamma_K}}$ of K tasks is shown in Figure~\ref{fig:KTG-path}.
+This schedule starts at the pickup location of a task in $\Gamma_K$, 
+then goes to the pickup location of other tasks in $\Gamma_K$, 
+and finally to the delivery location of all tasks in $\Gamma_K$.
+More significantly, in $\dot{S_{\Gamma_K}}$,
+the path between two locations about two tasks in $\Gamma_K$ 
+is is part of paths of the best schedules of two tasks.
+Therefore, Theorem~\ref{thm:TaskGroupCost} is proposed to evaluate the cost of the schedule of K tasks,
+and prove it.
 
 \begin{figure}[ht]
   \centering
-  \subfigure[K tasks]{
+  \subfigure[$\Gamma_K$]{
     \label{fig:K-taskgroup}
-    \includegraphics[width=0.4\linewidth]{Fig/k-task-1.pdf}}
-  \subfigure[Path of K tasks]{
+    \includegraphics[width=0.4\linewidth]{Fig/k-tasks.pdf}}
+  \subfigure[Schedule of $\Gamma_K$]{
     \label{fig:KTG-path}
-    \includegraphics[width=0.4\linewidth]{Fig/k-task-2.pdf}}
-  \caption[11]{Path of K Tasks}
+    \includegraphics[width=0.4\linewidth]{Fig/Path-KT.pdf}}
+  \caption{Schedule of K Tasks}
   \label{PKT}
-  \Description{Path of K Tasks}
+  \Description{Schedule of K Tasks}
 \end{figure}
 
 \begin{theorem}
-  \label{thm:TaskGroupCost}
-  Given a set of tasks $\Gamma_{N}$,
-  
-  \begin{eqnarray}
-    \label{eq:tgc}
-        Cost \leq \sum_{\tau_i \in \Gamma_N}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})} - 2*(N-1)\Delta
+    \label{thm:TaskGroupCost}
+    Given a set of tasks $\Gamma_K$, there exists a path shown in Figure~\ref{fig:KTG-path} 
+    such that the following bound holds.
+    
+    \begin{eqnarray}
+        \label{eq:tgc}
+        Cost(\dot{S_{\Gamma_K}}) \leq 2 {\ast} \sum_{\tau_i \in \Gamma_K}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})} 
+        + 2{\ast}(K-1)\Delta
     \end{eqnarray}
-
+    where $\Delta$ is the carpooling chance between two tasks, 
+    and it will be determined in the following proof.
 \end{theorem}
 
-
-
 \begin{proof}
-    this is a proof.
+    Firstly, we need to prove that there is a path to complete $\Gamma_K$.
+    As shown in Figure~\ref{fig:KTG-path},
+    the schedule first connects the pickup locations of all tasks in $\Gamma_K$,
+    then connects the delivery locations of all tasks in $\Gamma_K$.
+    Focusing on the pickup locations set of $\Gamma_K$
+    and connecting the pickup locations,
+    we can get a tournament~\cite{enwiki:1234378036}, 
+    which is a directed graph with exactly one edge between each two vertices, 
+    in one of the two possible directions.
+
+
+    
+
 \end{proof}
 
 \subsection{K-Capacity Hierarchical Clustering}
+% diff between task group and single task
+
 Based on Theorem~\ref{thm:TaskGroupCost}, we can divide the set of tasks into groups.
-The K-Capacity Hierarchical Clustering Algorithm (KCHC) is proposed to divide the set of tasks into groups.
+The K-Capacity Hierarchical Clustering Algorithm (KCHC)
+is proposed to divide the set of tasks into groups.
 The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
 
 \begin{algorithm}[ht]
@@ -320,6 +366,8 @@ The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
 \STATE $M \leftarrow 0$
 \end{algorithmic}
 \end{algorithm}
+
+The pseduo-code of K-Capacity Hierarchical Clustering Algorithm is shown in Algorithm~\ref{alg:KCHC}.
 
 \balance
 

@@ -2937,6 +2937,9 @@
   \@ifundefined{theorem}{%
   \newtheorem{theorem}{Theorem}[section]
   }{}
+  % \@ifundefined{proof}{%
+  % \newtheorem{proof}[theorem]{proof}
+  % }{}
   \@ifundefined{conjecture}{%
   \newtheorem{conjecture}[theorem]{Conjecture}
   }{}
@@ -2953,6 +2956,9 @@
   \@ifundefined{example}{%
   \newtheorem{example}[theorem]{Example}
   }{}
+  % \@ifundefined{proof}{%
+  % \newtheorem{proof}[theorem]{proof}
+  % }{}
   \@ifundefined{definition}{%
   \newtheorem{definition}[theorem]{Definition}
   }{}
