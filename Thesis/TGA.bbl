@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{2}
+\begin{thebibliography}{3}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -53,10 +53,24 @@
 
 
 \bibitem[\protect\citeauthoryear{{Wikipedia contributors}}{{Wikipedia
-  contributors}}{2024}]%
+  contributors}}{2024a}]%
+        {SCC}
+\bibfield{author}{\bibinfo{person}{{Wikipedia contributors}}.}
+  \bibinfo{year}{2024}\natexlab{a}.
+\newblock \bibinfo{title}{Strongly connected component --- {Wikipedia}{,} The
+  Free Encyclopedia}.
+\newblock
+  \bibinfo{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Strongly_connected_component&oldid=1237069718}}.
+\newblock
+\newblock
+\shownote{[Online; accessed 16-September-2024].}
+
+
+\bibitem[\protect\citeauthoryear{{Wikipedia contributors}}{{Wikipedia
+  contributors}}{2024b}]%
         {enwiki:1234378036}
 \bibfield{author}{\bibinfo{person}{{Wikipedia contributors}}.}
-  \bibinfo{year}{2024}\natexlab{}.
+  \bibinfo{year}{2024}\natexlab{b}.
 \newblock \bibinfo{title}{Tournament (graph theory) --- {Wikipedia}{,} The Free
   Encyclopedia}.
 \newblock

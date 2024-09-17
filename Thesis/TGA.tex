@@ -32,10 +32,15 @@
 \usepackage{balance} % for balancing columns on the final page
 % new package
 \usepackage{algorithm}
-\usepackage{algorithmic}
+% \usepackage{algorithmic}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+% \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{url}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% AAMAS-2025 copyright block (do not change!)
@@ -206,7 +211,7 @@ The TGA method first analyzes the likelihood of carpooling between each task,
 and then divide the set of tasks into groups via K-Capacity Hierarchical Clustering Algorithm (KCHC). 
 Then, we allocate task groups to agents.
 
-\subsection{Task Group}
+\subsection{Carpooling Chance}
 % 说明为什么搞task group
 The biggest difference between multi-load agent and single-load agent 
 is that multi-load agent can load multiple items at the same time. 
@@ -273,14 +278,14 @@ Therefore, we define the carpooling chance between two tasks $\tau_{i}$ and $\ta
     The carpooling chance between two tasks $\tau_{i}$ and $\tau_{j}$ is defined as 
     \begin{eqnarray}
     \label{eq:cp2}
-        \Delta_{\tau_{i}, \tau_{j}} = min\{S^{q}_{i,j}\} - 
+        \delta_{\tau_{i}, \tau_{j}} = min\{Cost(S^{q}_{i,j})\} - 
         dis(v^{g}_{\tau_{i}}, v^{s}_{\tau_{i}}) - dis(v^{g}_{\tau_{j}}, v^{s}_{\tau_{j}})
         % q \in \{1, 2, 3, 4, 5, 6\}
     \end{eqnarray}
-    where $q \in [1, 6] \wedge q \in \mathbb{N_+}$. $\Delta_{i,j}$ is difference 
+    where $q \in [1, 6] \wedge q \in \mathbb{N_+}$. $\delta_{i,j}$ is difference 
     between the best schedule of two tasks 
     and the sum of the distances between the pickup and delivery locations of the two tasks.
-    The small $\Delta_{i,j}$ indicates that $\tau_{i}$ and $\tau_{j}$ being executed by the same agent
+    The small $\delta_{i,j}$ indicates that $\tau_{i}$ and $\tau_{j}$ being executed by the same agent
     has less impact on each other's completed time, which can efficiently optimize ${ST}$.
 \end{definition}
 
@@ -327,11 +332,23 @@ and prove it.
     \begin{eqnarray}
         \label{eq:tgc}
         Cost(\dot{S_{\Gamma_K}}) \leq 2 {\ast} \sum_{\tau_i \in \Gamma_K}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})} 
-        + 2{\ast}(K-1)\Delta
+        + 2{\ast}(K-1)\delta
     \end{eqnarray}
-    where $\Delta$ is the carpooling chance between two tasks, 
-    and it will be determined in the following proof.
+    where $\delta$ is the carpooling chance between two tasks.
 \end{theorem}
+
+\begin{figure}[ht]
+  \centering
+  \subfigure[Tournament]{
+  \includegraphics[width=0.4\linewidth]{Fig/tournament.pdf}
+  \label{fig:tournament}}
+  \subfigure[SCC]{
+  \includegraphics[width=0.4\linewidth]{Fig/SCC.pdf}
+  \label{SCC}}
+  \caption{The tournament and SCC}
+  \label{fig:tournament-SCC}
+  \Description{The tournament and SCC}
+\end{figure}
 
 \begin{proof}
     Firstly, we need to prove that there is a path to complete $\Gamma_K$.
@@ -343,16 +360,94 @@ and prove it.
     we can get a tournament~\cite{enwiki:1234378036}, 
     which is a directed graph with exactly one edge between each two vertices, 
     in one of the two possible directions.
+    As shown in Figure~\ref{fig:tournament}, 
+    there are 5 pickup locations,
+    and a path between each two locations.
+    Accroding to the definition of tournament,
+    there is a Hamiltonian path in the tournament~\cite{enwiki:1234378036},
+    that means there exists a path to connect all pickup locations of $\Gamma_K$.
+    Similarly, there is a path to connect all delivery locations of $\Gamma_K$.
+    Then, we need to find a path to connect the pickup locations and delivery locations.
+    Therefore, we introduce the Strongly Connected Component (SCC)~\cite{SCC},
+    which is a subgraph that is strongly connected.
+    As shown in Figure~\ref{SCC},
+    $v^{s}_{\tau_{2}}$, $v^{s}_{\tau_{3}}$ and $v^{s}_{\tau_{4}}$ combine  to form a SCC
+    where there is a path between each two locations.
+    When we shrink the SCC to a single vertex 
+    and focus on the last SCC of the pickup locations and first SCC of the delivery locations,
+    we can find two locations, $v^{s}_{\tau_{i}}$ and $v^{g}_{\tau_{j}}$, in two SCCs respectively.
+    Therefore, there is a path between $v^{s}_{\tau_{i}}$ and $v^{g}_{\tau_{j}}$ 
+    to connect the pickup locations and delivery locations.
+    % proof that in appendix
 
-
-    
+    Secondly, we need to evaluate the cost of the path.
+    In the beginning, we evaluate the cost of the path between the pickup locations.
+    $dis(v^{s}_{\tau_{j}}, v^{s}_{\tau_{i}})$ is the distance 
+    between the pickup locations of $\tau_{i}$ and $\tau_{j}$,
+    and all possible schedules of two tasks are shown in Figure~\ref{fig:2TP}.
+    If the best schedule of two tasks is $S^{1}_{i,j}$,
+    we can get Equation~\ref{eq:dis1}.
+    \begin{eqnarray}
+      \label{eq:dis1}
+      Cost(S^{1}_{i,j}) &=& dis(v^s_{\tau_j}, v^s_{\tau_i})+dis(v^g_{\tau_i}, v^s_{\tau_j})
+      +dis(v^g_{\tau_j}, v^g_{\tau_i}) \nonumber \\
+      % dis(v^g_{\tau_j}, v^s_{\tau_j}) + dis(v^g_{\tau_i}, v^s_{\tau_i}) + \delta_{\tau_i, \tau_j}
+      & \geq & dis(v^s_{\tau_j}, v^s_{\tau_i})+ dis(v^g_{\tau_j}, v^s_{\tau_j})\\
+      \label{eq:dis2}
+      dis(v^g_{\tau_i}, v^s_{\tau_i})+\delta_{\tau_i, \tau_j} &\geq& dis(v^s_{\tau_j}, v^s_{\tau_i})
+    \end{eqnarray}
+    Then, based on this Definition~\ref{cp2}, we can get Equation~\ref{eq:dis2}.
+    Finally, we check all the possible schedules of two tasks in Figure~\ref{fig:2TP},
+    and we ensure the Equation~\ref{eq:dis2} holds.
+    Similarly, we can evaluate the cost of the path between the delivery locations
+    by the same method and get Equation~\ref{eq:dis3}.
+    \begin{eqnarray}
+      \label{eq:dis3}
+      dis(v^{g}_{\tau_{j}}, v^{s}_{\tau_{j}})+ \delta_{i,j} &\geq& dis(v^{g}_{\tau_{j}}, v^{g}_{\tau_{i}})
+    \end{eqnarray}
+    Therefore, we can evaluate the cost of the path between the pickup locations and delivery locations.
+    The cost of paths in pickup locations less than or equal to 
+    $\sum_{\tau_i \in {\Gamma_K \setminus \tau_i}}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})}$ + $(K-1)\delta$,
+    which $\tau_i$ is the last pickup location in $\dot{S_{\Gamma_K}}$.
+    The cost of paths in delivery locations less than or equal to
+    $\sum_{\tau_i \in \Gamma_K \setminus \tau_j}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})}$ + $(K-1)\delta$,
+    which $\tau_j$ is the first delivery location in $\dot{S_{\Gamma_K}}$.
+    The cost of the path $dis(v^{g}_{\tau_{j}}, v^{s}_{\tau_{i}})$, 
+    which connects the pickup locations and delivery locations in $\dot{S_{\Gamma_K}}$,
+    is less than or equal to $dis(v^{g}_{\tau_{j}}, v^{s}_{\tau_{j}}) + dis(v^{g}_{\tau_{i}}, v^{s}_{\tau_{i}})$.
+    Therefore, the cost of the schedule is less than or equal to 
+    $2 {\ast} \sum_{\tau_i \in \Gamma_K}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})} + 2{\ast}(K-1)\delta$.
 
 \end{proof}
+
+
+Therefore, we propose the Get Carpooling Chance (GCC) Algorithm between multiple tasks.
+
+\begin{algorithm}
+\caption{Get Carpooling Chance Algorithm}
+\label{alg:GCC}
+\begin{algorithmic}[1]
+\Require Set of tasks $\Gamma_p$ and $\Gamma_q$ %%input
+\Ensure Carpooling chance $\Delta_{\Gamma_p, \Gamma_q}$ %%output
+\State Initialize $\Delta_{\Gamma_p, \Gamma_q} = 0$
+\State $\Gamma_{p+q} = \Gamma_p \cup \Gamma_q$
+% \State Get tournaments of pickup and delivery locations of $\Gamma_{p+q}$
+\State Call Tarjan algorithm to get $SCC_s$ and $SCC_g$ of $\Gamma_{p+q}$
+\For {$SCC^{i}_s \in SCC_s$}
+    \For {$\tau_i \in SCC^{i}_s$}
+        \For {$\tau_j \in SCC^{i}_s$}
+            \State $\Delta_{\Gamma_p, \Gamma_q} += \delta_{\tau_i, \tau_j}$
+        \EndFor
+    \EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{K-Capacity Hierarchical Clustering}
 % diff between task group and single task
 
-Based on Theorem~\ref{thm:TaskGroupCost}, we can divide the set of tasks into groups.
+Based on Theorem~\ref{thm:TaskGroupCost},
+
 The K-Capacity Hierarchical Clustering Algorithm (KCHC)
 is proposed to divide the set of tasks into groups.
 The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
@@ -360,14 +455,39 @@ The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
 \begin{algorithm}[ht]
 \caption{K-Capacity Hierarchical Clustering Algorithm}
 \label{alg:KCHC}
-\begin{algorithmic}
-\REQUIRE $N$ tasks $\Gamma_{N}$, $K$ capacity.
-\ENSURE $M$ task groups $\Gamma_{M}$.
-\STATE $M \leftarrow 0$
+
+\begin{algorithmic}[1]
+\Require Set of tasks $\Gamma$, the max capacity of agents $K$ %%input
+\Ensure Set of task groups ${\Pi}$ %%output
+\State Initialize ${\Pi} = \emptyset$
+\For {$\tau_{i} \in \Gamma$}
+    \State Treat $\tau_{i}$ as a task group $\Gamma_{i}$, and add $\Gamma_{i}$ into ${\Pi}$
+    \For{$\Gamma_j \in \Pi$}
+        \State GetCarpoolingChance($\Gamma_{i}$, $\Gamma_{j}$)
+    \EndFor
+\EndFor
+\While{$\Pi$ has changed}
+    \State Select minimum carpooling chance $\Delta_{\Gamma_p, \Gamma_q}$ from $\Pi$
+    \State Merge $\Gamma_p$ and $\Gamma_q$ into $\Gamma_{p+q}$
+    \State Remove $\Gamma_p$ and $\Gamma_q$ from $\Pi$ and add $\Gamma_{p+q}$ into $\Pi$
+    \For{$\Gamma_j \in \Pi$}
+        \If {$|\Gamma_j| + |\Gamma_{p+q}| \leq K$}
+            \State GetCarpoolingChance($\Gamma_{p+q}$, $\Gamma_{j}$)
+        \EndIf
+    \EndFor
+\EndWhile
+\State \Return $\Pi$
+% \Function{GetCarpoolingChance}{$\Gamma_{i}$, $\Gamma_{j}$}
+%     \State Calculate the carpooling chance between $\Gamma_{i}$ and $\Gamma_{j}$
+%     \State \Return $\Delta_{\Gamma_{i} + \Gamma_{j}}$
+% \EndFunction
 \end{algorithmic}
 \end{algorithm}
 
-The pseduo-code of K-Capacity Hierarchical Clustering Algorithm is shown in Algorithm~\ref{alg:KCHC}.
+The pseduo-code of K-Capacity Hierarchical Clustering Algorithm is shown in Algorithm~\ref{alg:KCHC},
+where the input is a set of tasks $\Gamma$ and the max capacity of agents $K$,
+and the optput is a set of task groups $\Pi$.
+
 
 \balance
 
@@ -397,3 +517,15 @@ The pseduo-code of K-Capacity Hierarchical Clustering Algorithm is shown in Algo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% \begin{algorithm}[ht]
+% \caption{K-Capacity Hierarchical Clustering Algorithm}
+% \label{alg:KCHC}
+% \KwIn{Set of tasks $\Gamma$, the max capacity of agents $K$}
+% \KwOut{Set of task groups ${\Pi}$}
+% Initialize ${\Pi} = \emptyset$
+% \For {$\tau_{i} \in \Gamma$}{
+%     Treat $\tau_{i}$ as a task group $\Gamma_{i}$, and add $\Gamma_{i}$ into ${\Pi}$
+%     Calculate the carpooling chance between $\tau_{i}$ and other tasks in $\Gamma$
+% }
+% \Return$\Pi$
+% \end{algorithm}
