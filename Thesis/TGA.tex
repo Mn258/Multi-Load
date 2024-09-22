@@ -22,10 +22,18 @@
 
 %%%% For anonymized submission, use this
 \documentclass[sigconf,anonymous]{aamas} 
-
+\begin{CCSXML}
+<ccs2012>
+    <concept>
+        <concept_id>10010147.10010178.10010199.10010202</concept_id>
+        <concept_desc>Computing methodologies~Multi-agent planning</concept_desc>
+        <concept_significance>500</concept_significance>
+        </concept>
+  </ccs2012>
+\end{CCSXML}
+\ccsdesc[500]{Computing methodologies~Multi-agent planning}
 %%%% For camera-ready, use this
 % \documentclass[sigconf]{aamas} 
-
 
 %%% Load required packages here (note that many are included already).
 
@@ -162,9 +170,9 @@ Before this, we first give the definitions of map, task, agent, comparative metr
 
 \begin{definition}[Agent]
 \label{AgentDfn}
-    An agent $a \in A$ is represented as a tuple $<v_{a}, c_{a}, \Gamma_{a}, S_{a}>$, 
+    An agent $a \in A$ is represented as a tuple $<v_{a}, c_{a}, \Gamma_{a}, S_{\Gamma_{a}}>$, 
     where $v_{a}$ is location, $c_{a}$ represents the maximum capacity, 
-    $\Gamma_{a}$ is the set of tasks, and $S_{a}$ is the schedule of $\Gamma_{a}$. 
+    $\Gamma_{a}$ is the set of tasks, and $S_{\Gamma_{a}}$ is the schedule of $\Gamma_{a}$. 
     The $S_{\Gamma_{a}} = <v_{1}, v_{2},..., v_{n}>$, 
     where $v_{i}$ is a pickup or delivery location of task $\tau \in \Gamma_{a}$,
     and the cost of schedule $S_{\Gamma_{a}}$ is denoted as 
@@ -340,11 +348,17 @@ and prove it.
 \begin{figure}[ht]
   \centering
   \subfigure[Tournament]{
-  \includegraphics[width=0.4\linewidth]{Fig/tournament.pdf}
+  \includegraphics[width=0.3\linewidth]{Fig/tournament.pdf}
   \label{fig:tournament}}
   \subfigure[SCC]{
-  \includegraphics[width=0.4\linewidth]{Fig/SCC.pdf}
+  \includegraphics[width=0.3\linewidth]{Fig/SCCs.pdf}
   \label{SCC}}
+  % \subfigure[suodian]{
+  % \includegraphics[width=0.4\linewidth]{Fig/suodian.pdf}
+  % \label{fig:suodian}}
+  \subfigure[topologize]{
+  \includegraphics[width=0.3\linewidth]{Fig/topologize.pdf}
+  \label{fig:topologize}}
   \caption{The tournament and SCC}
   \label{fig:tournament-SCC}
   \Description{The tournament and SCC}
@@ -421,38 +435,73 @@ and prove it.
 \end{proof}
 
 
-Therefore, we propose the Get Carpooling Chance (GCC) Algorithm between multiple tasks.
+Therefore, we can quantify the carpooling chance between multiple tasks as follows,
+and introduce the Get Carpooling Chance Algorithm (GCC).
+Accroding to the Theorem~\ref{thm:TaskGroupCost},
+to be more efficient,
+we fisrt use Tarjan algorithm~\cite{tarjan1972depth} to get the SCCs of the set of tasks,
+and topologize it to get chain of SCC like Figure~\ref{fig:topologize}.
+Then, we calculate the carpooling chance in each SCC by Equation~\ref{eq:inSCC},
+and between two SCCs by Equation~\ref{eq:betweenSCC}.
+Finally, we get the carpooling chance between two task groups by Algorithm~\ref{alg:GCC}.
+\begin{eqnarray}
+  \label{eq:inSCC}
+    \Delta_{SCC} =\frac{2 {\ast} \sum_{\tau_i \in SCC}{\sum_{\tau_j \in SCC}{\delta_{\tau_i, \tau_j}}} }
+    {|SCC|}\\
+  \label{eq:betweenSCC}
+    \Delta_{SCC_i, SCC_{i+1}} = \frac{\sum_{\tau_i \in SCC_i}{\sum_{\tau_j \in SCC_{i+1}}{\delta_{\tau_i, \tau_j}}} }
+    {|SCC^i|{\ast}|SCC^{i+1}|}
+\end{eqnarray}
 
-\begin{algorithm}
+\begin{algorithm}[htbp]
 \caption{Get Carpooling Chance Algorithm}
 \label{alg:GCC}
 \begin{algorithmic}[1]
-\Require Set of tasks $\Gamma_p$ and $\Gamma_q$ %%input
-\Ensure Carpooling chance $\Delta_{\Gamma_p, \Gamma_q}$ %%output
-\State Initialize $\Delta_{\Gamma_p, \Gamma_q} = 0$
-\State $\Gamma_{p+q} = \Gamma_p \cup \Gamma_q$
-% \State Get tournaments of pickup and delivery locations of $\Gamma_{p+q}$
-\State Call Tarjan algorithm to get $SCC_s$ and $SCC_g$ of $\Gamma_{p+q}$
-\For {$SCC^{i}_s \in SCC_s$}
-    \For {$\tau_i \in SCC^{i}_s$}
-        \For {$\tau_j \in SCC^{i}_s$}
-            \State $\Delta_{\Gamma_p, \Gamma_q} += \delta_{\tau_i, \tau_j}$
-        \EndFor
-    \EndFor
+\Require Set of tasks $\Gamma_K$ %%input
+\Ensure Carpooling chance $\Delta_{\Gamma_K}$ %%output
+\State Initialize $\Delta_{\Gamma_K} = 0$
+\State Call Tarjan algorithm to get $SCC^s$ and $SCC^g$ of $\Gamma_K$
+\For {$SCC^s_{i} \in SCC^s$}
+    \State $\Delta_{SCC^s_i} =\frac{2 {\ast} \sum_{\tau_i \in SCC^s_{i}}{\sum_{\tau_j \in SCC^s_{i}}{\delta_{\tau_i, \tau_j}}} }
+    {|SCC^s_{i}|}$
+    \If {$SCC^s_i$ is not last SCC}
+        \State $\Delta_{SCC^s_i, SCC^s_{i+1}} = \frac{\sum_{\tau_i \in SCC^s_i}{\sum_{\tau_j \in SCC^s_{i+1}}{\delta_{\tau_i, \tau_j}}} }
+        {|SCC^s_i|{\ast}|SCC^s_{i+1}|}$
+    \EndIf
+    \State $\Delta_{\Gamma_K} += \Delta_{SCC}$ + $\Delta_{SCC^s_i, SCC^s_{i+1}}$
 \EndFor
+\State Do the same for $SCC^g$
+\State \Return $\Delta_{\Gamma_K}$
 \end{algorithmic}
 \end{algorithm}
+
+\textbf{Algorithm Detail:} 
+The pseduo-code of Get Carpooling Chance Algorithm is shown in Algorithm~\ref{alg:GCC},
+where the input is a set of tasks $\Gamma_K$ containing K tasks,
+and the output is the carpooling chance $\Delta_{\Gamma_K}$.
+First, we initialize $\Delta_{\Gamma_K}$ to 0.
+Then, we call Tarjan algorithm~\cite{tarjan1972depth} to get the SCCs of $\Gamma_K$ (lines 1-2).
+For each SCC, we calculate the carpooling chance in the SCC and between two SCCs (lines 3-10).
+Finally, we return the carpooling chance $\Delta_{\Gamma_K}$ (line 11).
+
+% \textbf{Analysis:} When $\Gamma_{K}$ contains K tasks,
+% the time complexity of Tarjan algorithm is $O(K^2)$.
+% Then, the time complexity of Algorithm~\ref{alg:GCC} is $O(K^2)$.
+
+
 
 \subsection{K-Capacity Hierarchical Clustering}
 % diff between task group and single task
 
-Based on Theorem~\ref{thm:TaskGroupCost},
+% Based on Theorem~\ref{thm:TaskGroupCost},
+
+
 
 The K-Capacity Hierarchical Clustering Algorithm (KCHC)
 is proposed to divide the set of tasks into groups.
 The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
 
-\begin{algorithm}[ht]
+\begin{algorithm}[htbp]
 \caption{K-Capacity Hierarchical Clustering Algorithm}
 \label{alg:KCHC}
 
@@ -462,8 +511,8 @@ The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
 \State Initialize ${\Pi} = \emptyset$
 \For {$\tau_{i} \in \Gamma$}
     \State Treat $\tau_{i}$ as a task group $\Gamma_{i}$, and add $\Gamma_{i}$ into ${\Pi}$
-    \For{$\Gamma_j \in \Pi$}
-        \State GetCarpoolingChance($\Gamma_{i}$, $\Gamma_{j}$)
+    \For{$\Gamma_j \in \Pi$ and $\tau_j \in \Gamma_j$}
+        \State $\Delta_{\Gamma_i, \Gamma_j} = \delta_{\tau_i, \tau_j}$
     \EndFor
 \EndFor
 \While{$\Pi$ has changed}
@@ -472,24 +521,142 @@ The KCHC algorithm is shown in Algorithm~\ref{alg:KCHC}.
     \State Remove $\Gamma_p$ and $\Gamma_q$ from $\Pi$ and add $\Gamma_{p+q}$ into $\Pi$
     \For{$\Gamma_j \in \Pi$}
         \If {$|\Gamma_j| + |\Gamma_{p+q}| \leq K$}
-            \State GetCarpoolingChance($\Gamma_{p+q}$, $\Gamma_{j}$)
+            \State $\Gamma = \Gamma_{p+q} \cup \Gamma_j$
+            \State GetCarpoolingChance($\Gamma$)
         \EndIf
     \EndFor
 \EndWhile
 \State \Return $\Pi$
-% \Function{GetCarpoolingChance}{$\Gamma_{i}$, $\Gamma_{j}$}
-%     \State Calculate the carpooling chance between $\Gamma_{i}$ and $\Gamma_{j}$
-%     \State \Return $\Delta_{\Gamma_{i} + \Gamma_{j}}$
-% \EndFunction
 \end{algorithmic}
 \end{algorithm}
 
+\textbf{Algorithm Detail:}
 The pseduo-code of K-Capacity Hierarchical Clustering Algorithm is shown in Algorithm~\ref{alg:KCHC},
 where the input is a set of tasks $\Gamma$ and the max capacity of agents $K$,
 and the optput is a set of task groups $\Pi$.
+First, we initialize $\Pi$ to an empty set (line 1).
+Then, we treat each task as a task group and add it to $\Pi$ (lines 2-3).
+For each pair of task groups, 
+we calculate the carpooling chance between them by Equation~\ref{eq:cp2} (lines 4-6).
+Next, we iteratively merge the task groups with the minimum carpooling chance 
+until the set of task groups does not change (lines 7-16).
+Finally, we return the set of task groups $\Pi$ (line 17).
+
+\textbf{Analysis:}
+When $\Gamma$ contains N tasks,
+the time complexity of Algorithm~\ref{alg:KCHC} is $O(N^2)$.
+$O(N^2)$ is the time complexity of calculating the carpooling chance between two tasks (lines 2-7).
+
+\subsection{Task Group Allocation Algorithm}
+
+% 说明为什么要搞task group allocation
+
+Before we introduce the Task Group Allocation Algorithm (TGA),
+we first define the detour cost of the schedule of agent $a$ to complete $\Gamma$.
+The detour cost is defined as the difference between the cost of the schedule 
+and the sum of the distances between the pickup and delivery locations of the tasks in $\Gamma$.
+\begin{eqnarray}
+  \label{eq:DCost}
+  DCost(S_{\Gamma_{a}}) = Cost(S_{\Gamma_{a}}) - \sum_{\tau_i \in \Gamma_a}{dis(v^{s}_{\tau_i}, v^{g}_{\tau_i})}
+\end{eqnarray}
+where $S_{\Gamma_{a}}$ is the schedule of agent $a$ to complete $\Gamma$.
+Therefore, we introduce the Get Schedule of Task Group Algorithm (GSTG) 
+to the schedule of task group by Equation~\ref{eq:DCost}.
+
+\begin{algorithm}[htbp]
+\caption{Get Schedule of Task Group}
+\label{alg:ScheduleTG}
+\begin{algorithmic}[1]
+\Require Set of tasks $\Gamma$, Agent $a$ %%input
+\Ensure Cost of schedule $Cost({S_{\Gamma}})$ %%output
+\State Initialize $Cost({S_{\Gamma}}) = 0$
+\While {$\Gamma$ is not empty}
+  \For {$\tau_i \in \Gamma$, adjacent locations $v_{i}$ and $v_{j}$ in $S_{\Gamma_a}$}
+      \State Insert $v^s_{\tau_i}$, $v^g_{\tau_i}$ between $v_{i}$ and $v_{j}$, respectively
+      \State Calculate the detour cost $DCost(S_{\Gamma_{a}})$.
+  \EndFor
+  \State Select task $\tau$ with minimum detour cost
+  \State Remove $\tau$ from $\Gamma$
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Algorithm Detail:}
+The pseduo-code of Get Schedule of Task Group Algorithm is shown in Algorithm~\ref{alg:ScheduleTG},
+where the input is a set of tasks $\Gamma$ and an agent $a$,
+and the output is the cost of the schedule $Cost({S_{\Gamma}})$.
+First, we initialize $Cost({S_{\Gamma}})$ to 0.
+Then, we iteratively insert the pickup and delivery locations of tasks in $\Gamma$
+between adjacent locations in $S_{\Gamma_a}$ (lines 3-6).
+Next, we select the task with the minimum detour cost and remove it from $\Gamma$ (lines 7-9).
+Finally, we return the cost of the schedule $Cost({S_{\Gamma}})$.
+
+Then, we allocate task groups to agents.
+Howerver, we cannot indirectly allocate task groups to agents,
+since we do not consider the location of agents, while dividing tasks into groups.
+It maybe lead to the situation that agents schedule task groups inappropriately.
+
+\begin{example}
+  As shown in Figure~\ref{fig:agent-taskgroup},
+  there is an agent, $a$, and a task group $\Gamma$, which contains three tasks, $\tau_{1}$, $\tau_{2}$ and $\tau_{3}$.
+  The black lines are the best schedule $S_\Gamma$ of $a$ to complete $\Gamma$.
+  Obviously, in black lines, $a$ requires a detour to pickup location of $\tau_{1}$,
+  which is irrational schedule.
+  
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Fig/A-TG.pdf}
+    \caption{The schedule of agent $a$ to complete $\Gamma$}
+    \label{fig:agent-taskgroup}
+    \Description{The schedule of agent $a$ to complete $\Gamma$}
+  \end{figure}
+\end{example}
+
+Therefore, to consider the location of agents,
+we split the task group $\Gamma$ into multiple subgroups,
+\begin{eqnarray}
+  \label{eq:split}
+  \Pi_{\Gamma} = \{ \forall \Gamma_i | \Gamma_i \subset \Gamma \}
+\end{eqnarray}
+where $\Pi_{\Gamma}$ is the set of subgroups of $\Gamma$.
 
 
-\balance
+Based on there,
+we propose the Task Group Allocation Algorithm (TGA) to allocate task groups to agents.
+
+
+\begin{algorithm}[htbp]
+\caption{Task Group Allocation Algorithm}
+\label{alg:TGA}
+\begin{algorithmic}[1]
+\Require Set of tasks $\Gamma$, set of agents $A$ %%input
+\Ensure Set of schedule $\mathcal{S}_S$ of all agents %%output
+\State $K$ = the max capacity of agents
+\State $\Pi$ = K-Capacity Hierarchical Clustering Algorithm($\Gamma$, $K$)
+\For {$\Gamma \in \Pi$}
+    \State Get $\Pi_{\Gamma}$ by Equation~\ref{eq:split}
+    \State ${\tilde{\Pi}}$ extends $\Pi_{\Gamma}$
+\EndFor
+\For {$a_i \in A$, $\Gamma_j \in {\tilde{\Pi}}$}
+    \State Get detour cost $DCost(S_{\Gamma_{a_i}})$ by GSTG Algorithm
+\EndFor
+\While {${\tilde{\Pi}}$ is not empty}
+    \State Select agent $a$ and task group $\Gamma$ with minimum detour cost
+    \State Remove $\Gamma$ and $\forall \Gamma'| \Gamma'\cap \Gamma \neq \phi $
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Algorithm Detail:}
+The pseduo-code of Task Group Allocation Algorithm is shown in Algorithm~\ref{alg:TGA},
+where the input is a set of tasks $\Gamma$ and a set of agents $A$,
+and the output is a set of schedule $\mathcal{S}_S$ of all agents.
+First, we get the max capacity of agents $K$,
+and call KCHC Algorithm to find a set of task groups $\Pi$ (lines 1-2).
+
+
+\textbf{Analysis:}
+% \balance
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -497,7 +664,7 @@ and the optput is a set of task groups $\Pi$.
 %%% (rather than an unnumbered section). The use of this environment 
 %%% ensures the proper identification of the section in the article 
 %%% metadata as well as the consistent spelling of the heading.
-
+ 
 \begin{acks}
   This work is financially supported by Shenzhen Science and Technology Program 
   under Grant No.GXWD20220817124827001 and No.JCYJ20210324132406016.
@@ -512,6 +679,7 @@ and the optput is a set of task groups $\Pi$.
 \bibliography{sample}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
 

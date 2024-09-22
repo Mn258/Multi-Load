@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2024.9.14)  16 SEP 2024 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2024.9.17)  21 SEP 2024 23:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -574,7 +574,7 @@ File: T1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Lin
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 3094.
-) (/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
+) Excluding 'CCSXML' comment. (/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
 Package: balance 1999/02/23 4.3 (PWD)
 \oldvsize=\dimen192
 ) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
@@ -619,7 +619,7 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@top=\skip82
 \subfig@bottom=\skip83
 )
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 120.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 128.
 \c@theorem=\count313
  Excluding comment 'screenonly' Include comment 'printonly' Excluding comment 'anonsuppress' Excluding comment 'acks' (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
@@ -628,84 +628,84 @@ File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
 ) (/home/yh/MAPF/Multi-Load/Thesis/TGA.aux)
 \openout1 = `TGA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 120.
-LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line 120.
+LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 128.
+LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 120.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 120.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 128.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 120.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 120.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 128.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 120.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 120.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 128.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    ... okay on input line 128.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 120.
-LaTeX Font Info:    Trying to load font information for OT1+LinuxLibertineT-TLF on input line 120.
+(Font)              scaled to size 7.0pt on input line 128.
+LaTeX Font Info:    Trying to load font information for OT1+LinuxLibertineT-TLF on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/libertine/OT1LinuxLibertineT-TLF.fd
 File: OT1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for OT1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 120.
+(Font)              scaled to size 7.3pt on input line 128.
 <<ot1.cmap>>
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 120.
+(Font)              scaled to size 5.5pt on input line 128.
 <<oml.cmap>>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 120.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 120.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 120.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Info: Redefining \microtypecontext on input line 120.
+LaTeX Info: Redefining \microtypecontext on input line 128.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 120.
+LaTeX Info: Redefining \showhyphens on input line 128.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -713,7 +713,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package hyperref Info: Link coloring OFF on input line 120.
+Package hyperref Info: Link coloring OFF on input line 128.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -721,9 +721,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count315
 )
-LaTeX Info: Redefining \ref on input line 120.
-LaTeX Info: Redefining \pageref on input line 120.
-LaTeX Info: Redefining \nameref on input line 120.
+LaTeX Info: Redefining \ref on input line 128.
+LaTeX Info: Redefining \pageref on input line 128.
+LaTeX Info: Redefining \nameref on input line 128.
  (/home/yh/MAPF/Multi-Load/Thesis/TGA.out) (/home/yh/MAPF/Multi-Load/Thesis/TGA.out)
 \@outlinefile=\write4
 \openout4 = `TGA.out'.
@@ -791,51 +791,51 @@ Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 130.
-LaTeX Font Info:    Trying to load font information for T1+LinuxBiolinumT-TLF on input line 130.
+(Font)              scaled to size 17.28pt on input line 138.
+LaTeX Font Info:    Trying to load font information for T1+LinuxBiolinumT-TLF on input line 138.
  (/usr/share/texlive/texmf-dist/tex/latex/libertine/T1LinuxBiolinumT-TLF.fd
 File: T1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/LinuxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 130.
+(Font)              scaled to size 17.28pt on input line 138.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 130.
+(Font)              scaled to size 17.28pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 130.
+(Font)              scaled to size 12.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 130.
+(Font)              scaled to size 10.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 130.
-LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 130.
+(Font)              scaled to size 7.0pt on input line 138.
+LaTeX Font Info:    Trying to load font information for TS1+LinuxLibertineT-TLF on input line 138.
  (/usr/share/texlive/texmf-dist/tex/latex/libertine/TS1LinuxLibertineT-TLF.fd
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 130.
+(Font)              scaled to size 7.0pt on input line 138.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
+(Font)              scaled to size 9.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 130.
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 130.
+(Font)              scaled to size 10.95pt on input line 138.
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 138.
  (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
+(Font)              scaled to size 9.0pt on input line 138.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
+(Font)              scaled to size 9.0pt on input line 138.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -846,143 +846,152 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 130.
+(Font)              scaled to size 7.3pt on input line 138.
+LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 130.
+(Font)              scaled to size 8.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 130.
+(Font)              scaled to size 8.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 130.
+(Font)              scaled to size 8.0pt on input line 138.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 145.
+(Font)              scaled to size 9.0pt on input line 153.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/carpooling.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/carpooling.pdf, id=41, 365.44528pt x 320.1561pt>
+<Fig/carpooling.pdf, id=45, 365.44528pt x 320.1561pt>
 File: Fig/carpooling.pdf Graphic file (type pdf)
 <use Fig/carpooling.pdf>
-Package pdftex.def Info: Fig/carpooling.pdf  used on input line 222.
+Package pdftex.def Info: Fig/carpooling.pdf  used on input line 230.
 (pdftex.def)             Requested size: 120.57375pt x 105.6323pt.
 [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/path1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/path1.pdf, id=74, 336.12576pt x 145.09207pt>
+<Fig/path1.pdf, id=79, 336.12576pt x 145.09207pt>
 File: Fig/path1.pdf Graphic file (type pdf)
 <use Fig/path1.pdf>
-Package pdftex.def Info: Fig/path1.pdf  used on input line 249.
+Package pdftex.def Info: Fig/path1.pdf  used on input line 257.
 (pdftex.def)             Requested size: 96.45752pt x 41.63725pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/path2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/path2.pdf, id=75, 320.60779pt x 148.11334pt>
+<Fig/path2.pdf, id=80, 320.60779pt x 148.11334pt>
 File: Fig/path2.pdf Graphic file (type pdf)
 <use Fig/path2.pdf>
-Package pdftex.def Info: Fig/path2.pdf  used on input line 252.
+Package pdftex.def Info: Fig/path2.pdf  used on input line 260.
 (pdftex.def)             Requested size: 96.45752pt x 44.5609pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/path3.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/path3.pdf, id=76, 331.2375pt x 145.50359pt>
+<Fig/path3.pdf, id=81, 331.2375pt x 145.50359pt>
 File: Fig/path3.pdf Graphic file (type pdf)
 <use Fig/path3.pdf>
-Package pdftex.def Info: Fig/path3.pdf  used on input line 255.
+Package pdftex.def Info: Fig/path3.pdf  used on input line 263.
 (pdftex.def)             Requested size: 96.45752pt x 42.37035pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/path4.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/path4.pdf, id=77, 331.2375pt x 147.67169pt>
+<Fig/path4.pdf, id=82, 331.2375pt x 147.67169pt>
 File: Fig/path4.pdf Graphic file (type pdf)
 <use Fig/path4.pdf>
-Package pdftex.def Info: Fig/path4.pdf  used on input line 258.
+Package pdftex.def Info: Fig/path4.pdf  used on input line 266.
 (pdftex.def)             Requested size: 96.45752pt x 43.0017pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/path5.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/path5.pdf, id=78, 331.2375pt x 147.67169pt>
+<Fig/path5.pdf, id=83, 331.2375pt x 147.67169pt>
 File: Fig/path5.pdf Graphic file (type pdf)
 <use Fig/path5.pdf>
-Package pdftex.def Info: Fig/path5.pdf  used on input line 261.
+Package pdftex.def Info: Fig/path5.pdf  used on input line 269.
 (pdftex.def)             Requested size: 96.45752pt x 43.0017pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/path6.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/path6.pdf, id=79, 331.2375pt x 147.67169pt>
+<Fig/path6.pdf, id=84, 331.2375pt x 147.67169pt>
 File: Fig/path6.pdf Graphic file (type pdf)
 <use Fig/path6.pdf>
-Package pdftex.def Info: Fig/path6.pdf  used on input line 264.
+Package pdftex.def Info: Fig/path6.pdf  used on input line 272.
 (pdftex.def)             Requested size: 96.45752pt x 43.0017pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/k-tasks.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/k-tasks.pdf, id=84, 258.9675pt x 522.99388pt>
+<Fig/k-tasks.pdf, id=89, 258.9675pt x 522.99388pt>
 File: Fig/k-tasks.pdf Graphic file (type pdf)
 <use Fig/k-tasks.pdf>
-Package pdftex.def Info: Fig/k-tasks.pdf  used on input line 318.
+Package pdftex.def Info: Fig/k-tasks.pdf  used on input line 326.
 (pdftex.def)             Requested size: 96.45752pt x 194.7975pt.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/Path-KT.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/Path-KT.pdf, id=85, 253.90858pt x 522.99388pt>
+<Fig/Path-KT.pdf, id=90, 253.90858pt x 522.99388pt>
 File: Fig/Path-KT.pdf Graphic file (type pdf)
 <use Fig/Path-KT.pdf>
-Package pdftex.def Info: Fig/Path-KT.pdf  used on input line 321.
+Package pdftex.def Info: Fig/Path-KT.pdf  used on input line 329.
 (pdftex.def)             Requested size: 96.45752pt x 198.67589pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 328.
+(Font)              scaled to size 9.0pt on input line 336.
 
 
 pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/tournament.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/tournament.pdf, id=87, 406.3983pt x 213.67828pt>
+<Fig/tournament.pdf, id=92, 406.3983pt x 213.67828pt>
 File: Fig/tournament.pdf Graphic file (type pdf)
 <use Fig/tournament.pdf>
-Package pdftex.def Info: Fig/tournament.pdf  used on input line 344.
-(pdftex.def)             Requested size: 96.45752pt x 50.7165pt.
+Package pdftex.def Info: Fig/tournament.pdf  used on input line 352.
+(pdftex.def)             Requested size: 72.34497pt x 38.03656pt.
 
 
-pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/SCC.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Fig/SCC.pdf, id=88, 406.3983pt x 233.9139pt>
-File: Fig/SCC.pdf Graphic file (type pdf)
-<use Fig/SCC.pdf>
-Package pdftex.def Info: Fig/SCC.pdf  used on input line 347.
-(pdftex.def)             Requested size: 96.45752pt x 55.51942pt.
+pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/SCCs.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Fig/SCCs.pdf, id=93, 428.5611pt x 233.9139pt>
+File: Fig/SCCs.pdf Graphic file (type pdf)
+<use Fig/SCCs.pdf>
+Package pdftex.def Info: Fig/SCCs.pdf  used on input line 355.
+(pdftex.def)             Requested size: 72.34497pt x 39.48643pt.
+
+
+pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/topologize.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Fig/topologize.pdf, id=94, 298.23419pt x 151.5261pt>
+File: Fig/topologize.pdf Graphic file (type pdf)
+<use Fig/topologize.pdf>
+Package pdftex.def Info: Fig/topologize.pdf  used on input line 361.
+(pdftex.def)             Requested size: 72.34497pt x 36.75543pt.
 [2.2 </home/yh/MAPF/Multi-Load/Thesis/Fig/carpooling.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/path1.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/path2.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/path3.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/path4.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/path5.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/path6.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/k-tasks.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/Path-KT.pdf>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 427.
- Excluding 'acks' comment. (/home/yh/MAPF/Multi-Load/Thesis/TGA.bbl
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 457.
+ [3.3 </home/yh/MAPF/Multi-Load/Thesis/Fig/tournament.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/SCCs.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/topologize.pdf>]
 
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
-[3.3 </home/yh/MAPF/Multi-Load/Thesis/Fig/tournament.pdf> </home/yh/MAPF/Multi-Load/Thesis/Fig/SCC.pdf>]) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+pdfTeX warning: pdflatex (file /home/yh/MAPF/Multi-Load/Thesis/Fig/A-TG.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Fig/A-TG.pdf, id=307, 331.2375pt x 333.16469pt>
+File: Fig/A-TG.pdf Graphic file (type pdf)
+<use Fig/A-TG.pdf>
+Package pdftex.def Info: Fig/A-TG.pdf  used on input line 608.
+(pdftex.def)             Requested size: 72.34497pt x 72.76266pt.
+Excluding 'acks' comment. (/home/yh/MAPF/Multi-Load/Thesis/TGA.bbl [4.4 </home/yh/MAPF/Multi-Load/Thesis/Fig/A-TG.pdf>]) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 ) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
 )
+Overfull \vbox (1.54099pt too high) has occurred while \output is active []
 
-Class aamas Warning: CCS concepts are mandatory for papers over two pages.
-
-
-Overfull \vbox (1.152pt too high) has occurred while \output is active []
-
- [4.4] (/home/yh/MAPF/Multi-Load/Thesis/TGA.aux)
+ [5.5] (/home/yh/MAPF/Multi-Load/Thesis/TGA.aux)
 Package rerunfilecheck Info: File `TGA.out' has not changed.
-(rerunfilecheck)             Checksum: 0249BA2D2F8242AE5E88357032DCE6AF;1082.
+(rerunfilecheck)             Checksum: 7A98353C50AC3F6762675FC986D43BA0;1327.
  )
 (\end occurred when \ifx on line 25 was incomplete) 
 Here is how much of TeX's memory you used:
- 20889 strings out of 479304
- 318232 string characters out of 5869779
- 708446 words of memory out of 5000000
- 37125 multiletter control sequences out of 15000+600000
- 535141 words of font info for 290 fonts, out of 8000000 for 9000
+ 20971 strings out of 479304
+ 319946 string characters out of 5869779
+ 716303 words of memory out of 5000000
+ 37158 multiletter control sequences out of 15000+600000
+ 539156 words of font info for 315 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 96i,11n,131p,872b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on /home/yh/MAPF/Multi-Load/Thesis/TGA.pdf (4 pages, 585968 bytes).
+ 96i,11n,131p,872b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on /home/yh/MAPF/Multi-Load/Thesis/TGA.pdf (5 pages, 632614 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 47 named destinations out of 1000 (max. 500000)
- 76424 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 431 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 80538 words of extra memory for PDF output out of 89155 (max. 10000000)
 
