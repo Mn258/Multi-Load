@@ -86,7 +86,7 @@ def updatePosition(batch:int, aid:int):
         pass
     i = 0
     pathcost = []
-    TotalPath = []
+    # TotalPath = []
     while len(agent.schedule)-1 > i and batch > 0:
         if distanceofTask(agent.schedule[i], agent.schedule[i+1]) <= batch:
             batch -= distanceofTask(agent.schedule[i], agent.schedule[i+1])
@@ -95,15 +95,15 @@ def updatePosition(batch:int, aid:int):
             i+=1
         else:
             break
-        TotalPath.extend(path)
+        # TotalPath.extend(path)
         pass
     for j in range(1, i+1):
         if agent.schedule[j][3] > 0:
-            print(agent.id, "pick up task", agent.schedule[j][3])
+            # print(agent.id, "pick up task", agent.schedule[j][3])
             map.taskSet.taskId.remove(agent.schedule[j][3])
             agent.taskList.append(agent.schedule[j][3])
         else:
-            print(agent.id, "delivery task", -agent.schedule[j][3])
+            # print(agent.id, "delivery task", -agent.schedule[j][3])
             map.completedTask.append(-agent.schedule[j][3])
             agent.taskList.remove(-agent.schedule[j][3])
             map.taskSet.Tset[-agent.schedule[j][3]].completeTime = map.timestep - map.config.batch + pathcost[j-1]
@@ -117,7 +117,7 @@ def updatePosition(batch:int, aid:int):
         return None
     if batch > 0:
         position, dddpath = map.getAstar(agent.schedule[i], agent.schedule[i+1], batch)
-        TotalPath.extend(dddpath)
+        # TotalPath.extend(dddpath)
         agent.position = position
         agent.schedule = agent.schedule[i:]
         agent.schedule[0] = position+[agent.schedule[0][2]]+[0]
@@ -134,8 +134,8 @@ def updatePosition(batch:int, aid:int):
             num -= 1
     agent.schedule = new_schedule
     agent.pathcost = getPathCost(agent.schedule)
-    checkPath(agent.schedule)
-    return TotalPath
+    # checkPath(agent.schedule)
+    # return TotalPath
     pass
 
 
@@ -153,6 +153,7 @@ def positiveGraph(G:List[List[int]]):
     pass
 
 def kMeansClustering(TaskSet:List[int], k:int) -> List[List[int]]:
+    # map.method = 3
     """ k means clustering """
     if TaskSet == []:
         return []
@@ -402,7 +403,18 @@ def allocationTask2(Tpackage:List[List[int]]):
             PathSet[(i, bestagent.id)] = [path, cost]
     pass
 
-def compareALG(TaskSet:List[int]):
+def NestestNeighborClusteringandRouting(TaskSet:List[int]):
+    Tpackage = DBSCANClustering(TaskSet, map.agentSet.getMaxCapacity())
+    allocationTask(Tpackage)
+    pass
+
+def Kmeans(TaskSet:List[int]):
+    Tpackage = kMeansClustering(TaskSet, map.agentSet.numAgent)
+    allocationTask(Tpackage)
+    pass
+
+def IIG_comparedALG(TaskSet:List[int]):
+    # map.method = 1
     """ compare the algorithm """
     pathset = {}
     for i in range(len(TaskSet)):
@@ -444,8 +456,8 @@ def ClusterAllocation(TaskSet:List[int]):
     maxCapacity = map.agentSet.getMaxCapacity()
     # Tpackage = kMeansClustering(TaskSet, map.agentSet.numAgent)
     # Tpackage = HeuristicClustering(TaskSet, maxCapacity)
-    Tpackage = MaxHeuristicClustering(TaskSet, maxCapacity)
-    # Tpackage = MHCEnhance(TaskSet, maxCapacity)
+    # Tpackage = MaxHeuristicClustering(TaskSet, maxCapacity)
+    Tpackage = MHCEnhance(TaskSet, maxCapacity)
     # Tpackage = DBSCANClustering(TaskSet, maxCapacity)
     # print("Time:", time.time()-t)
     allocationTask2(Tpackage)

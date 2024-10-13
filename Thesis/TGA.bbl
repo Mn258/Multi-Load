@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{4}
+\begin{thebibliography}{18}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -52,6 +52,91 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Chen, Alonso-Mora, Bai, Harabor, and
+  Stuckey}{Chen et~al\mbox{.}}{2021}]%
+        {chen2021integrated}
+\bibfield{author}{\bibinfo{person}{Zhe Chen}, \bibinfo{person}{Javier
+  Alonso-Mora}, \bibinfo{person}{Xiaoshan Bai}, \bibinfo{person}{Daniel~D
+  Harabor}, {and} \bibinfo{person}{Peter~J Stuckey}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Integrated task assignment and path planning for
+  capacitated multi-agent pickup and delivery}.
+\newblock \bibinfo{journal}{\emph{IEEE Robotics and Automation Letters}}
+  \bibinfo{volume}{6}, \bibinfo{number}{3} (\bibinfo{year}{2021}),
+  \bibinfo{pages}{5816--5823}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Li, Tinka, Kiesel, Durham, Kumar, and
+  Koenig}{Li et~al\mbox{.}}{2021}]%
+        {li2021lifelong}
+\bibfield{author}{\bibinfo{person}{Jiaoyang Li}, \bibinfo{person}{Andrew
+  Tinka}, \bibinfo{person}{Scott Kiesel}, \bibinfo{person}{Joseph~W Durham},
+  \bibinfo{person}{TK~Satish Kumar}, {and} \bibinfo{person}{Sven Koenig}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Lifelong multi-agent path finding in large-scale
+  warehouses}. In \bibinfo{booktitle}{\emph{Proceedings of the AAAI Conference
+  on Artificial Intelligence}}, Vol.~\bibinfo{volume}{35}.
+  \bibinfo{pages}{11272--11281}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ma, H{\"o}nig, Kumar, Ayanian, and Koenig}{Ma
+  et~al\mbox{.}}{2019}]%
+        {ma2019lifelong}
+\bibfield{author}{\bibinfo{person}{Hang Ma}, \bibinfo{person}{Wolfgang
+  H{\"o}nig}, \bibinfo{person}{TK~Satish Kumar}, \bibinfo{person}{Nora
+  Ayanian}, {and} \bibinfo{person}{Sven Koenig}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Lifelong path planning with kinematic constraints
+  for multi-agent pickup and delivery}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the AAAI Conference on Artificial
+  Intelligence}}, Vol.~\bibinfo{volume}{33}. \bibinfo{pages}{7651--7658}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ma, Li, Kumar, and Koenig}{Ma
+  et~al\mbox{.}}{2017}]%
+        {ma2017lifelong}
+\bibfield{author}{\bibinfo{person}{Hang Ma}, \bibinfo{person}{Jiaoyang Li},
+  \bibinfo{person}{TK Kumar}, {and} \bibinfo{person}{Sven Koenig}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Lifelong multi-agent path finding for online pickup
+  and delivery tasks}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:1705.10868}}
+  (\bibinfo{year}{2017}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Sarkar, Paul, and Pal}{Sarkar
+  et~al\mbox{.}}{2018}]%
+        {sarkar2018scalable}
+\bibfield{author}{\bibinfo{person}{Chayan Sarkar},
+  \bibinfo{person}{Himadri~Sekhar Paul}, {and} \bibinfo{person}{Arindam Pal}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{A Scalable Multi-Robot Task Allocation Algorithm}.
+  In \bibinfo{booktitle}{\emph{2018 IEEE International Conference on Robotics
+  and Automation (ICRA)}}. \bibinfo{publisher}{IEEE},
+  \bibinfo{address}{Brisbane, Australia}, \bibinfo{pages}{5022--5027}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/ICRA.2018.8460886}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Shi, Tong, Zhou, Xu, Tan, and Li}{Shi
+  et~al\mbox{.}}{2022}]%
+        {shi2022adaptive}
+\bibfield{author}{\bibinfo{person}{Dingyuan Shi}, \bibinfo{person}{Yongxin
+  Tong}, \bibinfo{person}{Zimu Zhou}, \bibinfo{person}{Ke Xu},
+  \bibinfo{person}{Wenzhe Tan}, {and} \bibinfo{person}{Hongbo Li}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Adaptive task planning for large-scale robotized
+  warehouses}. In \bibinfo{booktitle}{\emph{2022 IEEE 38th International
+  Conference on Data Engineering (ICDE)}}. IEEE, \bibinfo{pages}{3327--3339}.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Tarjan}{Tarjan}{1972}]%
         {tarjan1972depth}
 \bibfield{author}{\bibinfo{person}{Robert Tarjan}.}
@@ -60,6 +145,30 @@
 \newblock \bibinfo{journal}{\emph{SIAM journal on computing}}
   \bibinfo{volume}{1}, \bibinfo{number}{2} (\bibinfo{year}{1972}),
   \bibinfo{pages}{146--160}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wang and Chen}{Wang and Chen}{2024}]%
+        {wang2024task}
+\bibfield{author}{\bibinfo{person}{Hanfu Wang} {and} \bibinfo{person}{Weidong
+  Chen}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Task scheduling for heterogeneous agents pickup and
+  delivery using recurrent open shop scheduling models}.
+\newblock \bibinfo{journal}{\emph{Robotics and Autonomous Systems}}
+  \bibinfo{volume}{172} (\bibinfo{year}{2024}), \bibinfo{pages}{104604}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wang, Liu, Qiu, Li, and Zhou}{Wang
+  et~al\mbox{.}}{2023}]%
+        {wang2023efficient}
+\bibfield{author}{\bibinfo{person}{Shengli Wang}, \bibinfo{person}{Youjiang
+  Liu}, \bibinfo{person}{Yongtao Qiu}, \bibinfo{person}{Simin Li}, {and}
+  \bibinfo{person}{Jie Zhou}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{An efficient distributed task allocation method for
+  maximizing task allocations of multirobot systems}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Automation Science and
+  Engineering}} (\bibinfo{year}{2023}).
 \newblock
 
 
@@ -89,6 +198,91 @@
 \newblock
 \newblock
 \shownote{[Online; accessed 15-September-2024].}
+
+
+\bibitem[\protect\citeauthoryear{Wilde and Alonso-Mora}{Wilde and
+  Alonso-Mora}{2024}]%
+        {wilde2024statistically}
+\bibfield{author}{\bibinfo{person}{Nils Wilde} {and} \bibinfo{person}{Javier
+  Alonso-Mora}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Statistically distinct plans for multi-objective
+  task assignment}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Robotics}}
+  (\bibinfo{year}{2024}).
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wu, Liu, Tang, Cai, Bai, Khonstantine, and
+  Zhao}{Wu et~al\mbox{.}}{2021}]%
+        {wu2021multi}
+\bibfield{author}{\bibinfo{person}{Xiaohu Wu}, \bibinfo{person}{Yihao Liu},
+  \bibinfo{person}{Xueyan Tang}, \bibinfo{person}{Wentong Cai},
+  \bibinfo{person}{Funing Bai}, \bibinfo{person}{Gilbert Khonstantine}, {and}
+  \bibinfo{person}{Guopeng Zhao}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Multi-agent pickup and delivery with task
+  deadlines}. In \bibinfo{booktitle}{\emph{IEEE/WIC/ACM International
+  Conference on Web Intelligence and Intelligent Agent Technology}}.
+  \bibinfo{pages}{360--367}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Wurman, D'Andrea, and Mountz}{Wurman
+  et~al\mbox{.}}{2008}]%
+        {wurman2008coordinating}
+\bibfield{author}{\bibinfo{person}{Peter~R Wurman}, \bibinfo{person}{Raffaello
+  D'Andrea}, {and} \bibinfo{person}{Mick Mountz}.}
+  \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Coordinating hundreds of cooperative, autonomous
+  vehicles in warehouses}.
+\newblock \bibinfo{journal}{\emph{AI magazine}} \bibinfo{volume}{29},
+  \bibinfo{number}{1} (\bibinfo{year}{2008}), \bibinfo{pages}{9--9}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{You, Jia, Pang, Wen, Shi, and Zeng}{You
+  et~al\mbox{.}}{2023}]%
+        {electronics12183842}
+\bibfield{author}{\bibinfo{person}{Jiangwei You}, \bibinfo{person}{Jianfang
+  Jia}, \bibinfo{person}{Xiaoqiong Pang}, \bibinfo{person}{Jie Wen},
+  \bibinfo{person}{Yuanhao Shi}, {and} \bibinfo{person}{Jianchao Zeng}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{A Novel Multi-Robot Task Assignment Scheme Based on
+  a Multi-Angle K-Means Clustering Algorithm and a Two-Stage Load-Balancing
+  Strategy}.
+\newblock \bibinfo{journal}{\emph{Electronics}} \bibinfo{volume}{12},
+  \bibinfo{number}{18} (\bibinfo{year}{2023}).
+\newblock
+\showISSN{2079-9292}
+\urldef\tempurl%
+\url{https://doi.org/10.3390/electronics12183842}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Zhang, Sang, Li, Han, and Duan}{Zhang
+  et~al\mbox{.}}{2022}]%
+        {zhang2022effective}
+\bibfield{author}{\bibinfo{person}{Xu-jin Zhang}, \bibinfo{person}{Hong-yan
+  Sang}, \bibinfo{person}{Jun-qing Li}, \bibinfo{person}{Yu-yan Han}, {and}
+  \bibinfo{person}{Peng Duan}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{An effective multi-AGVs dispatching method applied
+  to matrix manufacturing workshop}.
+\newblock \bibinfo{journal}{\emph{Computers \& Industrial Engineering}}
+  \bibinfo{volume}{163} (\bibinfo{year}{2022}), \bibinfo{pages}{107791}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zhou, Wang, Ding, Hu, and Shang}{Zhou
+  et~al\mbox{.}}{2019}]%
+        {zhou2019balanced}
+\bibfield{author}{\bibinfo{person}{Xing Zhou}, \bibinfo{person}{Huaimin Wang},
+  \bibinfo{person}{Bo Ding}, \bibinfo{person}{Tianjiang Hu}, {and}
+  \bibinfo{person}{Suning Shang}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Balanced connected task allocations for multi-robot
+  systems: An exact flow-based integer program and an approximate tree-based
+  genetic algorithm}.
+\newblock \bibinfo{journal}{\emph{Expert Systems with Applications}}
+  \bibinfo{volume}{116} (\bibinfo{year}{2019}), \bibinfo{pages}{10--20}.
+\newblock
 
 
 \end{thebibliography}

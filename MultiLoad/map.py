@@ -2,6 +2,8 @@ import random
 from MultiLoad.task import TaskSet
 from MultiLoad.agent import AgentSet
 from typing import List
+# from task import TaskSet
+# from agent import AgentSet
 
 class Config:
     def __init__(self, batch:int) -> None:
@@ -17,8 +19,10 @@ class Map:
         self.timestep:int = 0
         self.config:Config = Config(10)
         self.ST:int = 0
-        self.processingtime:int = 0
+        self.ms:int = 0
+        self.processingtime = 0
         self.getMapFromFile()
+        self.method = 0 # 0:TGA 1:nCAR 2:IIG 3:K-means
     pass
 
     def getAstarPosition(self, start:List[int], end:List[int], cost:int):
@@ -219,7 +223,8 @@ global map
 map = generateMap("zzz.txt", 1500, 1000, 20, 3)
 # map.setHeristic()
 map.getHeristic()
-# for i in range(map.height):
-#     for j in range(map.width):
-#         print(h[i][j], end = " ")
-#     print()
+# map.generateTask(2000, 3600)
+# map.generateTask(4000, 3600)
+# map.generateTask(6000, 3600)
+# map.generateTask(8000, 3600)
+# map.generateTask(10000, 3600)

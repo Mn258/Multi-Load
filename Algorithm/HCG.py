@@ -116,10 +116,11 @@ def distanceDir(ts1:List[int], ts2:List[int], G, dirs, dirg):
     T.extend(x for x in ts2)
     deltaS = Tarjan(T, G, dirs)
     deltaG = Tarjan(T, G, dirg)
-    return (deltaS + deltaG)/2
+    return (deltaS + deltaG)
     pass
 
 def MHCEnhance(TaskSet:List[int], k:int):
+    # map.method = 0
     """ Max heuristic clustering with SCC """
     if TaskSet == []:
         return []
@@ -147,7 +148,6 @@ def MHCEnhance(TaskSet:List[int], k:int):
             del Tasks[min_i]
             del Tasks[min_j-1]
             Tasks.append(new_cluster)
-
             del weight[min_i]
             del weight[min_j-1]
             for ii in range(len(weight)):
